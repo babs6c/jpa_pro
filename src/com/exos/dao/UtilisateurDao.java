@@ -14,7 +14,7 @@ import com.exos.entities.Utilisateur;
 
 @Stateless
 public class UtilisateurDao {
-	private final static String JPQL_LISTE_MEMBERS="select u from membres";
+	private final static String JPQL_LISTE_MEMBERS="select u from Utilisateur";
 	private final static String JPQL_FIND_MEMBER_BY_EMAIL="select u from Utilisateur u where u.email=:email";
 	private final static String JPQL_FIND_MEMBER="select u from Utilisateur u where u.email=:email and u.pass=:pass";
     
