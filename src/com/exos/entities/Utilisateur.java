@@ -1,5 +1,8 @@
 package com.exos.entities;
 
+
+
+import java.io.Serializable;
 import java.sql.Timestamp;
 
 import javax.persistence.Column;
@@ -9,9 +12,17 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import org.eclipse.persistence.annotations.Convert;
+import org.eclipse.persistence.annotations.Converter;
+import org.joda.time.DateTime;
+
+import com.exos.tools.JodaDateTimeConverter;
+
+
+
 @Entity
 @Table(name="membres")
-public class Utilisateur {
+public class Utilisateur implements Serializable {
 	
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
@@ -21,8 +32,10 @@ public class Utilisateur {
 	private String email;
 	private String pass;
 	private String photo;
-	@Column(name="date_inscription")
-	private Timestamp dateInscription;
+	@Column(name="date_inscription",columnDefinition = "TIMESTAMP")
+    @Converter( name = "dateTimeConverter", converterClass = JodaDateTimeConverter.class )
+    @Convert( "dateTimeConverter" )
+	private DateTime dateInscription;
 	
 	public int getId() {
 		return id;
@@ -54,10 +67,11 @@ public class Utilisateur {
 	public void setPhoto(String photo) {
 		this.photo = photo;
 	}
-	public Timestamp getDateInscription() {
+	public DateTime getDateInscription() {
 		return dateInscription;
 	}
-	public void setDateInscription(Timestamp dateInscription) {
-		this.dateInscription = dateInscription;
+	public void setDateInscription(DateTime date) {
+		this.dateInscription = date;
 	}
+	
 }

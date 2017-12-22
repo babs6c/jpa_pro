@@ -15,6 +15,8 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.Part;
 
+import org.joda.time.DateTime;
+
 import com.exos.dao.UtilisateurDao;
 import com.exos.entities.Utilisateur;
 
@@ -25,7 +27,7 @@ public class InscriptionForm {
 	private Map <String,String> erreurs=new HashMap<String,String>();
 	private static final int TAILLE_TAMPON=10240;
 	private static final String REPERTOIRE_PERMANENT="/Users/macair/fichiersperm/";
-	
+
 	public InscriptionForm(UtilisateurDao utilisateurDao)
 	{
 		this.utilisateurDao=utilisateurDao;
@@ -46,7 +48,7 @@ public class InscriptionForm {
 		String email=request.getParameter("email");
 		String pass=request.getParameter("pass");
 		String agree=request.getParameter("agree");
-	    Timestamp date = new Timestamp( System.currentTimeMillis() );
+		DateTime date = new DateTime();
 
 		Utilisateur utilisateur=new Utilisateur();
 		
