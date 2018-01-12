@@ -14,7 +14,7 @@
 <!-- font-awesome icons -->
 <link rel="stylesheet" href="css/font.css" type="text/css"/>
 <link href="css/font-awesome.css" rel="stylesheet"> 
-<!-- //font-awesome icons -->
+
 <script src="js/jquery2.0.3.min.js"></script>
 <script src="js/validate.js"></script>
 <script src="js/validations.js"></script>

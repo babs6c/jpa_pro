@@ -27,7 +27,6 @@ public class Login extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	@EJB
 	private UtilisateurDao  utilisateurDao;
-	public static final String CONF_DAO_FACTORY = "daofactory";
 
   
     /**
